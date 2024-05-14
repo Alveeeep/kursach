@@ -11,7 +11,8 @@ def get_client_info(client_id: int):
 
 def edit_client_info(client_id: int, email, phone, firstname, lastname):
     cur.execute(
-        f"UPDATE Clients SET email = %s,phone=%s,firstname=%s,lastname=%s WHERE id_client={client_id}", [email, phone, firstname, lastname])
+        f"UPDATE Clients SET email = %s,phone=%s,firstname=%s,lastname=%s WHERE id_client={client_id}",
+        [email, phone, firstname, lastname])
     conn.commit()
 
 
@@ -118,3 +119,20 @@ def get_clients():
     data = cur.fetchall()
     return data
 
+
+def get_category_name_by_id(category_id: int):
+    cur.execute(f"SELECT name From categories WHERE id_category={category_id}")
+    data = cur.fetchone()
+    return data
+
+
+def get_manufacture_name_by_id(manufacture_id: int):
+    cur.execute(f"SELECT name From manufacturers WHERE id_manufacture={manufacture_id}")
+    data = cur.fetchone()
+    return data
+
+
+def get_store_info_by_id(store_id: int):
+    cur.execute(f"SELECT * FROM stores WHERE id_store={store_id}")
+    data = cur.fetchone()
+    return data

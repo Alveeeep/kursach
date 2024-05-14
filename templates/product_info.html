@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="py-5 text-center container">
+    <form method="post" class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">{{ info[1] }}</h1>
+        <div class="mb-3">
+            <label for="emailinputform" class="form-label">Производитель:</label>
+            <label id="emailinputform" class="form-label">{{ manufacture_name }}</label>
+            <label for="phoneinputform" class="form-label">Категория:</label>
+            <label id="phoneinputform" class="form-label">{{ category_name }}</label>
+            <label for="firstinputform" class="form-label">Цена:</label>
+            <label id="firstinputform" class="form-label">{{ info[4] }}</label>
+        </div>
+    </form>
+</div>
+{% endblock %}

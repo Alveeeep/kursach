@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex flex-column" style="position: relative;top: 20px">
+        {% for el in products %}
+        <div class="container" style="background-color: #F7F7F7; margin-bottom: 5px">
+            <div class="d-flex justify-content-between"
+                 style="position: relative;height:169px; width: 100%; margin: 0 auto;">
+                <div class="container">
+                    <a class="container" style="text-decoration: none;" href="/product_info/{{ el['id'] }}">
+                        <div class="item-title"
+                             style="
+                                 font-family: Montserrat;font-style: normal;font-weight: bold;font-size: 20px;line-height: 24px;color: #000000;">
+                            {{ el['name'] }}
+                        </div>
+                        <div class="item-manufacture"
+                             style="
+                                 font-family: Montserrat;font-style: italic;font-weight: 400;font-size: 20px;line-height: 24px;color: #000000;">
+                            {{ el['manufacture'] }}
+                        </div>
+                        <div class="item-category"
+                             style="
+                                 font-family: Montserrat;font-style: italic;font-weight: 400;font-size: 18px;line-height: 24px;color: #000000;">
+                            {{ el['category'] }}
+                        </div>
+                        <div class="item-price" style="position: relative;top:40px;
+                            font-family: Montserrat;font-style: normal;font-weight: 300;font-size: 16px;line-height: 20px;color: #000000;">
+                            {{ el['price'] }}₽
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
