@@ -11,9 +11,8 @@ def get_client_info(client_id: int):
 
 def edit_client_info(client_id: int, email, phone, firstname, lastname):
     cur.execute(
-        f"UPDATE Clients SET email={email},phone={phone},firstname={firstname},lastname={lastname} WHERE id_client={client_id}")
+        f"UPDATE Clients SET email = %s,phone=%s,firstname=%s,lastname=%s WHERE id_client={client_id}", [email, phone, firstname, lastname])
     conn.commit()
-    conn.close()
 
 
 def get_product_info(product_id: int):
@@ -26,7 +25,6 @@ def edit_product_info(product_id: int, name, id_manufacture, id_category, price)
     cur.execute(
         f"UPDATE Products SET name={name},id_manufacture={id_manufacture},id_category={id_category},price={price} WHERE id_product={product_id}")
     conn.commit()
-    conn.close()
 
 
 def create_purchase(client_id: int, product_id: int, store_id: int, count: int):
@@ -40,7 +38,6 @@ def create_purchase(client_id: int, product_id: int, store_id: int, count: int):
         f"INSERT INTO Purchases_payments (id_purchase, id_product, count, price) VALUES ({p_id}, {product_id}, {count}, {price})",
         (p_id, product_id, count, price))
     conn.commit()
-    conn.close()
 
 
 def get_deliveries_by_product(product_id: int):
@@ -71,44 +68,37 @@ def add_product(name: str, id_manufacture: int, id_category: int, price: int):
     cur.execute(
         f"INSERT INTO Products (name, id_manufacture, id_category, price) VALUES ({name}, {id_manufacture}, {id_category}, {price})")
     conn.commit()
-    conn.close()
 
 
 def delete_product(product_id: int):
     cur.execute(f"DELETE FROM Products WHERE id_product={product_id}")
     conn.commit()
-    conn.close()
 
 
 def add_delivery(product_id: int, store_id: int, count: int):
     cur.execute(
         f"INSERT INTO Deliveries (id_product, id_store, delivery_date, count) VALUES ({product_id},{store_id},{date.today().isoformat()},{count})")
     conn.commit()
-    conn.close()
 
 
 def add_manufacture(name: str):
     cur.execute(f"INSERT INTO Manufacturers (name) VALUES ({name})")
     conn.commit()
-    conn.close()
 
 
 def delete_manufacture(manufacture_id: int):
     cur.execute(f"DELETE FROM Manufacturers WHERE id_manufacture={manufacture_id}")
     conn.commit()
-    conn.close()
 
 
 def add_category(name: str):
     cur.execute(f"INSERT INTO Categories (name) VALUES ({name})")
     conn.commit()
-    conn.close()
 
 
 def delete_category(category_id: int):
     cur.execute(f"DELETE FROM Categories WHERE id_category={category_id}")
     conn.commit()
-    conn.close()
 
 
 def get_categories():
