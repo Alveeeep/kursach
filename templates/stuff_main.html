@@ -15,7 +15,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 {% for el in clients %}
-                <li><a class="dropdown-item" href="edit_client/{{ el[0] }}">{{ el[0] }}</a></li>
+                <li><a class="dropdown-item" href="/client_info/{{ el[0] }}">{{ el[0] }}</a></li>
                 {% endfor %}
             </ul>
             </div>
