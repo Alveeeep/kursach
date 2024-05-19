@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="py-5 text-center container">
+    <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Клиент {{ client_id }}</h1>
+        <p>
+            <a href="/info_and_edit_client/{{ client_id }}" class="btn btn-primary my-2">О себе</a>
+            <a href="/categories" class="btn btn-primary my-2">Категории и товары</a>
+            <a href="/products_in_store" class="btn btn-primary my-2">Наличие товара в филиале</a>
+            <a href="/new_purchase/{{ client_id }}" class="btn btn-primary my-2">Оформить покупку</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

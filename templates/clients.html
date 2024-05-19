@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="py-5 text-center container">
+    <h2 class="fw-light">Выберите клиента</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID клиента</th>
+            <th scope="col">Эл. почта</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Дата регистрации</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for el in res %}
+        <tr>
+            <td><a href="/client/{{ el['client_id'] }}" class="link-dark">{{ el['client_id'] }}</a></td>
+            <td>{{ el['email'] }}</td>
+            <td>{{ el['phone'] }}</td>
+            <td>{{ el['firstname'] }}</td>
+            <td>{{ el['lastname'] }}</td>
+            <td>{{ el['registration_date'] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

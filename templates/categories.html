@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="fw-light">Выберите категорию</h1>
+<div class="d-flex flex-column" style="position: relative;top: 20px">
+        {% for el in res %}
+        <div class="container" style="background-color: #F7F7F7; margin-bottom: 5px">
+            <div class="d-flex justify-content-between"
+                 style="position: relative;height:169px; width: 100%; margin: 0 auto;">
+                <div class="container">
+                    <a class="container" style="text-decoration: none;" href="/products_by_category/{{ el['category_id'] }}">
+                        <div class="item-title"
+                             style="
+                                 font-family: Montserrat;font-style: normal;font-weight: bold;font-size: 20px;line-height: 24px;color: #000000;">
+                            {{ el['name'] }}
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
