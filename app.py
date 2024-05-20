@@ -222,7 +222,7 @@ def new_purchase_one_page():
 def new_purchase_page(client_id):
     form = new_client_purchase.NewClientPurchaseForm()
     if form.validate_on_submit():
-        models.create_purchase(form.product_id.data, form.store_id.data, form.count.data)
+        models.create_purchase(client_id, form.product_id.data, form.store_id.data, form.count.data)
         return redirect(f'/client/{client_id}')
     return render_template('new_client_purchase.html', client_id=client_id, form=form)
 
